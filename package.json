@@ -1,7 +1,7 @@
 {
   "name": "trifid-plugin-hydra-box",
   "description": "Trifid Hydra Box plugin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "homepage": "https://github.com/zazuko/trifid-plugin-hydra-box",
   "repository": {

@@ -1,4 +1,4 @@
-const hydraBox = require('hydra-view')
+const hydraBox = require('hydra-box')
 
 function factory (router, configs) {
   return this.middleware.mountAll(router, configs, (config) => {

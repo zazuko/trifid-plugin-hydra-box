@@ -15,7 +15,7 @@
     "test": "standard && mocha"
   },
   "dependencies": {
-    "hydra-box": "^0.1.0"
+    "hydra-box": "^0.2.0"
   },
   "devDependencies": {}
 }

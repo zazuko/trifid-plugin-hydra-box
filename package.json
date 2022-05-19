@@ -2,6 +2,7 @@
   "name": "trifid-plugin-hydra-box",
   "description": "Trifid Hydra Box plugin",
   "version": "1.2.0",
+  "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/zazuko/trifid-plugin-hydra-box",
   "repository": {
@@ -15,7 +16,15 @@
     "test": "standard && mocha"
   },
   "dependencies": {
-    "hydra-box": "^0.2.0"
+    "assert-throws-async": "^3.0.0",
+    "hydra-box": "^0.6.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "c8": "^7.11.3",
+    "ejs": "^3.1.8",
+    "express-as-promise": "^1.2.0",
+    "get-stream": "^6.0.1",
+    "mocha": "^10.0.0",
+    "standard": "^17.0.0"
+  }
 }

@@ -1,13 +1,31 @@
-const hydraBox = require('hydra-box')
+import { middleware, Api } from 'hydra-box'
+import { resolve } from 'path'
 
-function factory (router, configs) {
-  return this.middleware.mountAll(router, configs, (config) => {
-    if (config.documentation.indexOf('://') === -1) {
-      config.documentation = 'file://' + config.documentation
-    }
-
-    return hydraBox.fromUrl(config.documentationUrl, config.documentation, config.options)
-  })
+function toFile (pathStr) {
+  return pathStr.startsWith('file:') ? pathStr : `file://${resolve(pathStr)}`
 }
 
-module.exports = factory
+async function trifidFactory (trifid) {
+  const { config } = trifid
+
+  if (!config) {
+    throw new Error('missing config')
+  }
+
+  if (!config.codePath) {
+    throw new Error('missing codePath parameter')
+  }
+
+  if (!config.documentationFilePath) {
+    throw new Error('missing documentationFilePath parameter')
+  }
+
+  const api = await Api.fromFile(toFile(config.documentationFilePath), {
+    path: '/api',
+    codePath: toFile(config.codePath)
+  })
+
+  return middleware(api, config)
+}
+
+export default trifidFactory
